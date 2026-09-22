@@ -1,0 +1,25 @@
+include("shared.lua")
+
+function ENT:Draw()
+	self.Entity:DrawModel()
+end
+
+function DrawInfo()
+	local tr = LocalPlayer():GetEyeTrace()
+	if IsValid(tr.Entity) and tr.Entity:GetPos():Distance(LocalPlayer():GetPos()) < 100 then
+		if tr.Entity:GetClass() == "register_tray" then
+			local ent = tr.Entity
+			local pos = ent:GetPos()
+
+			pos.z = pos.z + 8
+			pos = pos:ToScreen()
+
+			
+			local text = "\nregister tray\nPlace printer parts here. "
+
+			draw.DrawText(text, "TargetID", pos.x + 1, pos.y + 1, Color(0, 0, 0, 200), 1)
+			draw.DrawText(text, "TargetID", pos.x, pos.y, Color(255, 255, 255, 200), 1)
+		end
+	end
+end
+hook.Add( "HUDPaint", "DrawtrayInfo", DrawInfo ) 
