@@ -1,0 +1,13 @@
+"LightmappedGeneric"
+{
+"$basetexture" "custome_stuff_ep2/money/one_dollar_bill"
+"proxies"
+{
+"TextureScroll"
+{
+"Texturescrollvar" "$Basetexturetransform"
+"Texturescrollrate" "0.7"
+"texturescrollangle" "270"
+}
+}
+}
